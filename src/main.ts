@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule,{cors:true});
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
-    origin: '*',
+    origin: 'http://127.0.0.1:5500/index.html',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: '*', 
     preflightContinue: false,
