@@ -7,8 +7,12 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
     origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type,Authorization',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: '*', 
+    preflightContinue: false,
+    optionsSuccessStatus: 200,
+    credentials: true,
+    maxAge: 3600,
   });
   await app.listen(3000);
 }
